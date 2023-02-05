@@ -34,8 +34,16 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
   @override
   Widget build(BuildContext context) {
     // print(MediaQuery.of(context).size.height);
+    // print(MediaQuery.of(context).size.width);
     return Column(
       children: [
+        Container(
+              margin: EdgeInsets.all(15),
+              child: Row(
+                 children: [ BigText(text: "Restaurant Near You", ),
+          ]),
+            ),
+            
         Container(
           height: 300,
           // color: Colors.red,
@@ -55,7 +63,7 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
           ),
         ),
 
-        SizedBox(height: 15,),
+        SizedBox(height: 10,),
         Container(
           margin: EdgeInsets.only(left: 15),
           child: Row(
@@ -205,7 +213,7 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
                       height: 10,
                     ),
                     Row(
-                      children: [
+                      children: const [
                         IconText(
                             icon: Icons.circle_sharp,
                             text: 'Restaurant',
