@@ -15,49 +15,54 @@ class DescriptionText extends StatefulWidget {
 }
 
 class _DescriptionTextState extends State<DescriptionText> {
-  late  String firstHalf;
+  late String firstHalf;
 
-  late  String secondHalf;
+  late String secondHalf;
 
   bool hideText = true;
 
-  double textLength = 100;
+  double textLength = 200;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    if(widget.text.length > textLength){
+    if (widget.text.length > textLength) {
       firstHalf = widget.text.substring(0, textLength.toInt());
-      secondHalf = widget.text.substring(textLength. toInt()+1, widget.text.length);
-
-    }else{
+      secondHalf =
+          widget.text.substring(textLength.toInt() + 1, widget.text.length);
+    } else {
       firstHalf = widget.text;
       secondHalf = "";
     }
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: secondHalf.isEmpty? SmallText(text: firstHalf): Column(
-        children: [
-          SmallText(text: hideText?(firstHalf + "..."): (firstHalf + secondHalf)),
-
-          InkWell(
-            onTap: (() {
-              
-            }),
-
-            child: Row(
+      child: secondHalf.isEmpty
+          ? SmallText(text: firstHalf)
+          : Column(
               children: [
-                SmallText(text: "Show More"),
-                Icon(Icons.arrow_drop_down)
+                SmallText(
+                    text: hideText
+                        ? (firstHalf + "...")
+                        : (firstHalf + secondHalf)),
+                InkWell(
+                  onTap: (() {
+                    setState((){
+                      hideText = !hideText;
+
+                    });
+                  }),
+                  child: Row(
+                    children: [
+                      SmallText(text: "Show More"),
+                      Icon(hideText?Icons.arrow_drop_down: Icons.arrow_drop_up)
+                    ],
+                  ),
+                )
               ],
             ),
-          )
-        ],
-      ),
     );
   }
 }
