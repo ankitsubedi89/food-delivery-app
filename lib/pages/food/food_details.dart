@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/widgets/add_to_cart.dart';
 import 'package:flutter_catalog/widgets/description_text.dart';
 
 import '../../widgets/big_text.dart';
@@ -28,7 +29,7 @@ class FoodDetails extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: _mediaQuery.size.height*0.33,
+            top: _mediaQuery.size.height * 0.33,
             bottom: 0,
             left: 0,
             right: 0,
@@ -39,7 +40,9 @@ class FoodDetails extends StatelessWidget {
               ),
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(10))),
+                    borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10),
+                        topLeft: Radius.circular(10))),
                 child: Padding(
                   padding: const EdgeInsets.all(10),
                   child: Column(
@@ -76,14 +79,63 @@ class FoodDetails extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: _mediaQuery.size.height * 0.025),
-                      BigText(text: "Description" ,size: 26), 
-                      DescriptionText(text: "Chicken momo is a popular dish originating from the Himalayan region of Nepal, Tibet, and India. It is a type of steamed dumpling that is usually filled with minced chicken and spices, and sometimes vegetables. The dough is made from flour and water and the filled dumplings are usually steamed or fried and served with a spicy dipping sauce. Chicken momos are a staple food in the region and are enjoyed as a snack, main course, or street food.")
+                      BigText(text: "Description", size: 26),
+                      SizedBox(height: 10,),
+                      Expanded(
+                          child: SingleChildScrollView(
+                              child: DescriptionText(
+                                  text:
+                                      "Chicken momo is a popular dish originating from the Himalayan region of Nepal, Tibet, and India. It is a type of steamed dumpling that is usually filled with minced chicken and spices, and sometimes vegetables. The dough is made from flour and water and the filled dumplings are usually steamed or fried and served with a spicy dipping sauce. Chicken momos are a staple food in the region and are enjoyed as a snack, main course, or street food. Chicken momo is a popular dish originating from the Himalayan region of Nepal, Tibet, and India. It is a type of steamed dumpling that is usually filled with minced chicken and spices, and sometimes vegetables. The dough is made from flour and water and the filled dumplings are usually steamed or fried and served with a spicy dipping sauce. Chicken momos are a staple food in the region and are enjoyed as a snack, main course, or street food.",
+                                      )))
                     ],
                   ),
                 ),
               ),
             ))
       ]),
+      bottomNavigationBar: Container(
+        height: 120,
+        // width: 150,
+        padding: EdgeInsets.all(15),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+            color: Color.fromARGB(199, 213, 203, 203)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Center(
+              child: Container(
+                  height: 50,
+                  width: 100,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    children: [
+                      Icon(Icons.add),
+                      SizedBox(width: 10),
+                      BigText(text: "0"),
+                      SizedBox(width: 10),
+                      Icon(Icons.remove)
+                    ],
+                  )),
+            ),
+            Container(
+              height: 50,
+              width: 150,
+              decoration: BoxDecoration(
+                  color: Colors.black, borderRadius: BorderRadius.circular(10)),
+              child: Center(
+                  child: SmallText(
+                text: "Rs. 200 Add to Cart",
+                size: 14,
+                color: Colors.white,
+              )),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

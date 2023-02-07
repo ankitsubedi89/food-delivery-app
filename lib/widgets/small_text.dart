@@ -10,7 +10,7 @@ class SmallText extends StatelessWidget {
       this.color,
       required this.text,
       this.size = 12,
-      this.lineSpacing = 1.5});
+      this.lineSpacing = 1.5,});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +22,7 @@ class SmallText extends StatelessWidget {
           color: color,
           letterSpacing: lineSpacing,
            fontWeight: FontWeight.w400),
+           textAlign: TextAlign.justify,
     );
   }
 }

@@ -46,7 +46,7 @@ class _DescriptionTextState extends State<DescriptionText> {
                 SmallText(
                     text: hideText
                         ? (firstHalf + "...")
-                        : (firstHalf + secondHalf)),
+                        : (firstHalf + secondHalf), lineSpacing: 1.8, size: 15,),
                 InkWell(
                   onTap: (() {
                     setState((){
@@ -56,7 +56,7 @@ class _DescriptionTextState extends State<DescriptionText> {
                   }),
                   child: Row(
                     children: [
-                      SmallText(text: "Show More"),
+                      SmallText(text: "Show More", size: 15,lineSpacing: 1.8,),
                       Icon(hideText?Icons.arrow_drop_down: Icons.arrow_drop_up)
                     ],
                   ),
