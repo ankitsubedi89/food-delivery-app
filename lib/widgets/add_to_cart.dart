@@ -3,18 +3,19 @@ import 'package:flutter_catalog/widgets/big_text.dart';
 import 'package:flutter_catalog/widgets/small_text.dart';
 
 class AddToCart extends StatelessWidget {
-  final String text;
-  const AddToCart({super.key, required this.text});
+  const AddToCart({super.key, });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: 150,
+      body:Container(
+        height: 120,
         // width: 150,
         padding: EdgeInsets.all(15),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10), color: Colors.red),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+            color: Color.fromARGB(199, 213, 203, 203)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -29,7 +30,7 @@ class AddToCart extends StatelessWidget {
                     children: [
                       Icon(Icons.add),
                       SizedBox(width: 10),
-                      BigText(text: text),
+                      BigText(text: "0"),
                       SizedBox(width: 10),
                       Icon(Icons.remove)
                     ],
@@ -37,12 +38,12 @@ class AddToCart extends StatelessWidget {
             ),
             Container(
               height: 50,
-              width: 150,
+              width: 160,
               decoration: BoxDecoration(
                   color: Colors.black, borderRadius: BorderRadius.circular(10)),
               child: Center(
                   child: SmallText(
-                text: "Rs. 200 Add to Cart",
+                text: "Rs.200 | Add to Cart",
                 size: 14,
                 color: Colors.white,
               )),

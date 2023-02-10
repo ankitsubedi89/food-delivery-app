@@ -80,7 +80,7 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
             itemCount: 10,
             itemBuilder: ((context, index) {
               return Container(
-                margin: EdgeInsets.only(right: 15, left: 15, bottom: 10),
+                margin: const EdgeInsets.only(right: 15, left: 15, bottom: 10),
                 child: Column(
                   children: [
                     Row(
@@ -90,7 +90,7 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
                           width: 100,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
+                            image: const DecorationImage(
                                 image: AssetImage("assets/images/iblues.png"),
                                 fit: BoxFit.cover),
                           ),
@@ -150,6 +150,7 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
   Widget _buildHotel(index) {
     // Matrix4 matrix = Matrix4.identity();
 
+    var _mediaQuery = MediaQuery.of(context);
     return Stack(
       children: [
         Container(
@@ -200,7 +201,7 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
                                   )),
                         ),
                         SizedBox(
-                          width: 10,
+                          width: _mediaQuery.size.width * 0.05,
                         ),
                         SmallText(text: '4.5'),
                         SizedBox(

@@ -123,12 +123,12 @@ class FoodDetails extends StatelessWidget {
             ),
             Container(
               height: 50,
-              width: 150,
+              width: 160,
               decoration: BoxDecoration(
                   color: Colors.black, borderRadius: BorderRadius.circular(10)),
               child: Center(
                   child: SmallText(
-                text: "Rs. 200 Add to Cart",
+                text: "Rs.200 | Add to Cart",
                 size: 14,
                 color: Colors.white,
               )),
