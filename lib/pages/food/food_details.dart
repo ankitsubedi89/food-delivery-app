@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_catalog/widgets/add_to_cart.dart';
 import 'package:flutter_catalog/widgets/description_text.dart';
 
+import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/icon_text.dart';
 import '../../widgets/small_text.dart';
@@ -91,8 +92,22 @@ class FoodDetails extends StatelessWidget {
                   ),
                 ),
               ),
-            ))
+            )),
+
+            Positioned(
+              top: 60,
+              left: 20,
+              right: 20,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AppIcon(icon: Icons.arrow_back),
+                  AppIcon(icon: Icons.shopping_cart_outlined)
+                ],
+              ))
       ]),
+
+
       bottomNavigationBar: Container(
         height: 120,
         // width: 150,
