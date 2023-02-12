@@ -23,7 +23,7 @@ class FoodDetails extends StatelessWidget {
           child: Container(
             width: double.infinity,
             height: _mediaQuery.size.height * 0.4,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage("assets/images/momo.png"))),
@@ -40,7 +40,7 @@ class FoodDetails extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(10),
                         topLeft: Radius.circular(10))),
@@ -50,30 +50,54 @@ class FoodDetails extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BigText(text: "Momos"),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       SmallText(text: "Nayabazar, Pokhara"),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Row(
-                        children: const [
-                          IconText(
+                        children: [
+                          Wrap(
+                            children: List.generate(
+                                5,
+                                (index) => const Icon(
+                                      Icons.star,
+                                      color: Colors.black,
+                                      size: 18,
+                                    )),
+                          ),
+                          SizedBox(
+                            width: _mediaQuery.size.width * 0.05,
+                          ),
+                          SmallText(text: '4.5'),
+                          SizedBox(
+                            width: _mediaQuery.size.width * 0.05,
+                          ),
+                          SmallText(text: '102 comments')
+                        ],
+                      ),
+                      SizedBox(
+                        height: _mediaQuery.size.height * 0.012,
+                      ),
+                      Row(
+                        children: [
+                          const IconText(
                               icon: Icons.circle_sharp,
                               text: 'Restaurant',
                               iconColor: Colors.orange),
                           SizedBox(
-                            width: 5,
+                            width: _mediaQuery.size.width * 0.081,
                           ),
-                          IconText(
+                          const IconText(
                               icon: Icons.location_on,
                               text: '3.5km',
                               iconColor: Colors.green),
                           SizedBox(
-                            width: 5,
+                            width: _mediaQuery.size.width * 0.081,
                           ),
-                          IconText(
+                          const IconText(
                               icon: Icons.timer_outlined,
                               text: '15min',
                               iconColor: Colors.orange)
@@ -81,33 +105,32 @@ class FoodDetails extends StatelessWidget {
                       ),
                       SizedBox(height: _mediaQuery.size.height * 0.025),
                       BigText(text: "Description", size: 26),
-                      SizedBox(height: 10,),
-                      Expanded(
+                      SizedBox(
+                        height: _mediaQuery.size.height * 0.025,
+                      ),
+                      const Expanded(
                           child: SingleChildScrollView(
                               child: DescriptionText(
-                                  text:
-                                      "Chicken momo is a popular dish originating from the Himalayan region of Nepal, Tibet, and India. It is a type of steamed dumpling that is usually filled with minced chicken and spices, and sometimes vegetables. The dough is made from flour and water and the filled dumplings are usually steamed or fried and served with a spicy dipping sauce. Chicken momos are a staple food in the region and are enjoyed as a snack, main course, or street food. Chicken momo is a popular dish originating from the Himalayan region of Nepal, Tibet, and India. It is a type of steamed dumpling that is usually filled with minced chicken and spices, and sometimes vegetables. The dough is made from flour and water and the filled dumplings are usually steamed or fried and served with a spicy dipping sauce. Chicken momos are a staple food in the region and are enjoyed as a snack, main course, or street food.",
-                                      )))
+                        text:
+                            "Chicken momo is a popular dish originating from the Himalayan region of Nepal, Tibet, and India. It is a type of steamed dumpling that is usually filled with minced chicken and spices, and sometimes vegetables. The dough is made from flour and water and the filled dumplings are usually steamed or fried and served with a spicy dipping sauce. Chicken momos are a staple food in the region and are enjoyed as a snack, main course, or street food. Chicken momo is a popular dish originating from the Himalayan region of Nepal, Tibet, and India. It is a type of steamed dumpling that is usually filled with minced chicken and spices, and sometimes vegetables. The dough is made from flour and water and the filled dumplings are usually steamed or fried and served with a spicy dipping sauce. Chicken momos are a staple food in the region and are enjoyed as a snack, main course, or street food.",
+                      )))
                     ],
                   ),
                 ),
               ),
             )),
-
-            Positioned(
-              top: 60,
-              left: 20,
-              right: 20,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  AppIcon(icon: Icons.arrow_back),
-                  AppIcon(icon: Icons.shopping_cart_outlined)
-                ],
-              ))
+        Positioned(
+            top: 60,
+            left: 20,
+            right: 20,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                AppIcon(icon: Icons.arrow_back),
+                AppIcon(icon: Icons.shopping_cart_outlined)
+              ],
+            ))
       ]),
-
-
       bottomNavigationBar: Container(
         height: 120,
         // width: 150,
