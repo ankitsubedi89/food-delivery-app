@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_catalog/widgets/dimensions.dart';
 
 class SmallText extends StatelessWidget {
   final Color? color;
@@ -9,7 +10,7 @@ class SmallText extends StatelessWidget {
       {super.key,
       this.color,
       required this.text,
-      this.size = 12,
+      this.size = 0,
       this.lineSpacing = 1.5,});
 
   @override
@@ -18,7 +19,7 @@ class SmallText extends StatelessWidget {
       text,
       style: TextStyle(
           fontFamily: 'Raleway', 
-          fontSize: size,
+          fontSize: size == 0 ? Dimensions.font12 : size,
           color: color,
           letterSpacing: lineSpacing,
            fontWeight: FontWeight.w400),

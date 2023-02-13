@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_catalog/widgets/dimensions.dart';
 import 'package:flutter_catalog/widgets/small_text.dart';
 
 class IconText extends StatelessWidget {
@@ -15,7 +16,7 @@ class IconText extends StatelessWidget {
     return Row(
       children: [
         Icon(icon, color: iconColor,),
-        SizedBox(width: 5,),
+        SizedBox(width: Dimensions.width5,),
         SmallText(text: text)
       ],
     );

@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/food/food_details.dart';
 import 'package:flutter_catalog/widgets/big_text.dart';
+import 'package:flutter_catalog/widgets/dimensions.dart';
 import 'package:flutter_catalog/widgets/icon_text.dart';
 import 'package:flutter_catalog/widgets/small_text.dart';
 import 'package:get/get.dart';
@@ -41,14 +42,16 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
     return Column(
       children: [
         Container(
-              margin: EdgeInsets.all(15),
-              child: Row(
-                 children: [ BigText(text: "Restaurant Near You", ),
-          ]),
+          margin: EdgeInsets.only(top: Dimensions.height15, left: Dimensions.width10, right: Dimensions.width10, bottom: Dimensions.height10),
+          child: Row(children: [
+            BigText(
+              text: "Restaurant Near You",
             ),
-            
+          ]),
+        ),
+
         Container(
-          height: _mediaQuery.size.height * 0.36,
+          height: Dimensions.pageViewContainer,
           // color: Colors.red,
           child: PageView.builder(
               controller: pageController,
@@ -66,15 +69,22 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
           ),
         ),
 
-        SizedBox(height: _mediaQuery.size.height * 0.012,),
+        SizedBox(
+          height: Dimensions.height10,
+        ),
         Container(
-          margin: EdgeInsets.only(left: 15),
-          child: Row(
-            children: [
-              BigText(text: "All Restaurant", size: 22,),
-            ],
-          )),
-          SizedBox(height: _mediaQuery.size.height * 0.018,),
+            margin: EdgeInsets.only(left: Dimensions.width10),
+            child: Row(
+              children: [
+                BigText(
+                  text: "All Restaurant",
+                  size: Dimensions.font22,
+                ),
+              ],
+            )),
+        SizedBox(
+          height: Dimensions.height15,
+        ),
 
         // for popular restaurant
         ListView.builder(
@@ -83,16 +93,16 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
             itemCount: 10,
             itemBuilder: ((context, index) {
               return Container(
-                margin: const EdgeInsets.only(right: 15, left: 15, bottom: 10),
+                margin: EdgeInsets.only(right: Dimensions.width15, left: Dimensions.width10, bottom: Dimensions.height10),
                 child: Column(
                   children: [
                     Row(
                       children: [
                         Container(
-                          height: 100,
-                          width: 100,
+                          height: Dimensions.height100,
+                          width: Dimensions.width100,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(Dimensions.radius10),
                             image: const DecorationImage(
                                 image: AssetImage("assets/images/iblues.png"),
                                 fit: BoxFit.cover),
@@ -100,41 +110,46 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
                         ),
                         Expanded(
                           child: Container(
-                            height: 100,
+                            height: Dimensions.height100,
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(10)),
+                                borderRadius: BorderRadius.circular(Dimensions.radius10),),
                             child: Padding(
-                              padding: const EdgeInsets.all(10),
+                              padding: EdgeInsets.all(Dimensions.height10),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   InkWell(
-                                    onTap: (() {
-                                      Get.to(() =>FoodDetails());
-                                      // Get.back();
-                                    }),
-                                    child: BigText(text: "IBlues Restaurant and bar")),
-                                  SizedBox(height: 5,),
+                                      onTap: (() {
+                                        Get.to(() => FoodDetails());
+                                        // Get.back();
+                                      }),
+                                      child: BigText(
+                                          text: "IBlues Restaurant and bar")),
+                                  SizedBox(
+                                    height: Dimensions.height8,
+                                  ),
                                   SmallText(text: "Nayabazar, Pokhara"),
-                                  SizedBox(height: 5,),
+                                  SizedBox(
+                                    height: Dimensions.height8,
+                                  ),
                                   Row(
-                                    children: const [
-                                      IconText(
+                                    children: [
+                                      const IconText(
                                           icon: Icons.circle_sharp,
                                           text: 'Restaurant',
                                           iconColor: Colors.orange),
                                       SizedBox(
-                                        width: 5,
+                                        width: Dimensions.width5,
                                       ),
-                                      IconText(
+                                      const IconText(
                                           icon: Icons.location_on,
                                           text: '3.5km',
                                           iconColor: Colors.green),
                                       SizedBox(
-                                        width: 5,
+                                        width: Dimensions.width5,
                                       ),
-                                      IconText(
+                                      const IconText(
                                           icon: Icons.timer_outlined,
                                           text: '15min',
                                           iconColor: Colors.orange)
@@ -158,12 +173,11 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
   Widget _buildHotel(index) {
     // Matrix4 matrix = Matrix4.identity();
 
-    var _mediaQuery = MediaQuery.of(context);
     return Stack(
       children: [
         Container(
-          height: _mediaQuery.size.height * 0.30,
-          margin: const EdgeInsets.only(left: 5, right: 5),
+          height: Dimensions.height250,
+          margin: EdgeInsets.only(left: Dimensions.width5, right: Dimensions.width5),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: index.isEven ? Color(hashCode) : Color(0xff9294cc),
@@ -174,10 +188,10 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-              height: _mediaQuery.size.height * 0.146,
-              margin: const EdgeInsets.only(left: 35, right: 35, bottom: 20),
+              height: Dimensions.height120,
+              margin: EdgeInsets.only(left: Dimensions.width35, right: Dimensions.width35, bottom: Dimensions.height20),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: Colors.white,
                 boxShadow: const [
                   BoxShadow(
@@ -189,37 +203,37 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
                 ],
               ),
               child: Container(
-                padding: EdgeInsets.only(right: 15, left: 15, top: 10),
+                padding: EdgeInsets.only(right: Dimensions.width10, left: Dimensions.width10, top: Dimensions.height10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BigText(text: 'IBlues Restaurant and Bar'),
                     SizedBox(
-                      height: _mediaQuery.size.height * 0.012,
+                      height: Dimensions.height15,
                     ),
                     Row(
                       children: [
                         Wrap(
                           children: List.generate(
                               5,
-                              (index) => const Icon(
+                              (index) => Icon(
                                     Icons.star,
                                     color: Colors.black,
-                                    size: 18,
+                                    size: Dimensions.iconSize22,
                                   )),
                         ),
                         SizedBox(
-                          width: _mediaQuery.size.width * 0.05,
-                        ), 
+                          width: Dimensions.width10,
+                        ),
                         SmallText(text: '4.5'),
                         SizedBox(
-                          width: _mediaQuery.size.width * 0.05,
+                          width: Dimensions.width10,
                         ),
                         SmallText(text: '102 comments')
                       ],
                     ),
                     SizedBox(
-                      height: _mediaQuery.size.height * 0.012,
+                      height: Dimensions.height15,
                     ),
                     Row(
                       children: [
@@ -228,14 +242,14 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
                             text: 'Restaurant',
                             iconColor: Colors.orange),
                         SizedBox(
-                          width: _mediaQuery.size.width * 0.024,
+                          width: Dimensions.width10,
                         ),
                         const IconText(
                             icon: Icons.location_on,
                             text: '3.5km',
                             iconColor: Colors.green),
                         SizedBox(
-                          width: _mediaQuery.size.width * 0.024,
+                          width: Dimensions.width10,
                         ),
                         const IconText(
                             icon: Icons.timer_outlined,

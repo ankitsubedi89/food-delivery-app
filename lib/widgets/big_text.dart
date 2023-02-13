@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_catalog/widgets/dimensions.dart';
 
 class BigText extends StatelessWidget {
   final Color? color;
@@ -10,7 +11,7 @@ class BigText extends StatelessWidget {
       this.color,
       required this.text,
       this.overFlowText = TextOverflow.ellipsis,
-      this.size = 20});
+      this.size = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class BigText extends StatelessWidget {
       maxLines: 1,
       style: TextStyle(
           fontFamily: 'Raleway', 
-          fontSize: size,
+          fontSize: size == 0 ? Dimensions.font20: size,
           color: color,
            fontWeight: FontWeight.w400),
     );

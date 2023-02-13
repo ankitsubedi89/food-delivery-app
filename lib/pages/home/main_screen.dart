@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/home/restaurant_page_body.dart';
 import 'package:flutter_catalog/widgets/big_text.dart';
+import 'package:flutter_catalog/widgets/dimensions.dart';
 import 'package:flutter_catalog/widgets/small_text.dart';
 
 class MainScreen extends StatelessWidget {
@@ -13,27 +14,27 @@ class MainScreen extends StatelessWidget {
         body: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 10, bottom: 10 ),
-              padding: EdgeInsets.only(left: 10, right: 10),
+              margin: EdgeInsets.only(top: Dimensions.height10, bottom: Dimensions.height10 ),
+              padding: EdgeInsets.only(left: Dimensions.width10, right: Dimensions.width10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
-                    children: [BigText(text: "Nepal", size: 30,),
+                    children: [BigText(text: "Nepal", size: Dimensions.font30,),
                      Row(
                        children: [
-                         SmallText(text: "Pokhara", size: 15,),
+                         SmallText(text: "Pokhara", size: Dimensions.font15,),
                          Icon(Icons.arrow_drop_down_rounded)
                        ],
                      )],
                   ),
                   Container(
-                    height: 50,
-                    width: 50,
+                    height: Dimensions.height50,
+                    width: Dimensions.width50,
                     child: Icon(Icons.search, color: Colors.white),
                     decoration: BoxDecoration(
                         color: Colors.black,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(Dimensions.radius10)),
                   )
                 ],
               ),    
