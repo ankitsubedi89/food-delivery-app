@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/widgets/description_text.dart';
 import 'package:flutter_catalog/widgets/dimensions.dart';
+import 'package:get/get.dart';
 
 import '../../widgets/app_icon.dart';
 import '../../widgets/big_text.dart';
@@ -38,76 +39,76 @@ class FoodDetails extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
               ),
               child: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(10),
-                        topLeft: Radius.circular(10))),
+                        topRight: Radius.circular(Dimensions.radius10),
+                        topLeft: Radius.circular(Dimensions.radius10))),
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: EdgeInsets.all(Dimensions.height10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      BigText(text: "Momos"),
+                      BigText(text: "Momos" , size: Dimensions.font22,),
                       SizedBox(
-                        height: Dimensions.height10,
+                        height: Dimensions.height15,
                       ),
                       SmallText(text: "Nayabazar, Pokhara"),
                       SizedBox(
-                        height: Dimensions.height10,
+                        height: Dimensions.height15,
                       ),
                       Row(
-                      children: [
-                        Wrap(
-                          children: List.generate(
-                              5,
-                              (index) => const Icon(
-                                    Icons.star,
-                                    color: Colors.black,
-                                    size: 18,
-                                  )),
-                        ),
-                        SizedBox(
-                          width: Dimensions.width10,
-                        ), 
-                        SmallText(text: '4.5'),
-                        SizedBox(
-                          width:Dimensions.width10,
-                        ),
-                        SmallText(text: '102 comments')
-                      ],
-                    ),
-                    SizedBox(
-                      height: Dimensions.height15,
-                    ),
-                    Row(
-                      children: [
-                        const IconText(
-                            icon: Icons.circle_sharp,
-                            text: 'Restaurant',
-                            iconColor: Colors.orange),
-                        SizedBox(
-                          width: Dimensions.width10,
-                        ),
-                        const IconText(
-                            icon: Icons.location_on,
-                            text: '3.5km',
-                            iconColor: Colors.green),
-                        SizedBox(
-                          width: Dimensions.width10,
-                        ),
-                        const IconText(
-                            icon: Icons.timer_outlined,
-                            text: '15min',
-                            iconColor: Colors.orange)
-                      ],
-                    ),
-                      SizedBox(height: _mediaQuery.size.height * 0.025),
-                      BigText(text: "Description", size: 26),
+                        children: [
+                          Wrap(
+                            children: List.generate(
+                                5,
+                                (index) => Icon(
+                                      Icons.star,
+                                      color: Colors.black,
+                                      size: Dimensions.iconSize30,
+                                    )),
+                          ),
+                          SizedBox(
+                            width: Dimensions.width20,
+                          ),
+                          SmallText(text: '4.5'),
+                          SizedBox(
+                            width: Dimensions.width20,
+                          ),
+                          SmallText(text: '102 comments')
+                        ],
+                      ),
                       SizedBox(
-                        height: _mediaQuery.size.height * 0.025,
+                        height: Dimensions.height15,
+                      ),
+                      Row(
+                        children: [
+                          const IconText(
+                              icon: Icons.circle_sharp,
+                              text: 'Restaurant',
+                              iconColor: Colors.orange),
+                          SizedBox(
+                            width: Dimensions.width25,
+                          ),
+                          const IconText(
+                              icon: Icons.location_on,
+                              text: '3.5km',
+                              iconColor: Colors.green),
+                          SizedBox(
+                            width: Dimensions.width25,
+                          ),
+                          const IconText(
+                              icon: Icons.timer_outlined,
+                              text: '15min',
+                              iconColor: Colors.orange)
+                        ],
+                      ),
+                      SizedBox(height: Dimensions.height20),
+                      BigText(text: "Description", size: Dimensions.font26),
+                      SizedBox(
+                        height: Dimensions.height20,
                       ),
                       const Expanded(
                           child: SingleChildScrollView(
@@ -121,54 +122,56 @@ class FoodDetails extends StatelessWidget {
               ),
             )),
         Positioned(
-            top: 60,
-            left: 20,
-            right: 20,
+            top: Dimensions.height60,
+            left: Dimensions.width20,
+            right: Dimensions.width20,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                AppIcon(icon: Icons.arrow_back),
-                AppIcon(icon: Icons.shopping_cart_outlined)
+              children: [
+                InkWell(
+                    onTap: (() => Get.back()),
+                    child: const AppIcon(icon: Icons.arrow_back)),
+                const AppIcon(icon: Icons.shopping_cart_outlined)
               ],
             ))
       ]),
       bottomNavigationBar: Container(
         height: 120,
         // width: 150,
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.all(Dimensions.height15),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-            color: Color.fromARGB(199, 213, 203, 203)),
+                topLeft: Radius.circular(Dimensions.radius10), topRight: Radius.circular(Dimensions.radius10)),
+            color: const Color.fromARGB(199, 213, 203, 203)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Center(
               child: Container(
-                  height: 50,
-                  width: 100,
+                  height: Dimensions.height50,
+                  width: Dimensions.width100,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10)),
                   child: Row(
                     children: [
-                      Icon(Icons.add),
-                      SizedBox(width: 10),
+                      const Icon(Icons.add),
+                      SizedBox(width: Dimensions.width10),
                       BigText(text: "0"),
-                      SizedBox(width: 10),
-                      Icon(Icons.remove)
+                      SizedBox(width: Dimensions.width10),
+                      const Icon(Icons.remove)
                     ],
                   )),
             ),
             Container(
-              height: 50,
-              width: 160,
+              height: Dimensions.height50,
+              width: Dimensions.width160,
               decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(10)),
+                  color: Colors.black, borderRadius: BorderRadius.circular(Dimensions.radius10)),
               child: Center(
                   child: SmallText(
                 text: "Rs.200 | Add to Cart",
-                size: 14,
+                size: Dimensions.font14,
                 color: Colors.white,
               )),
             )

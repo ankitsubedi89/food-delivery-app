@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/food/food_details.dart';
 import 'package:flutter_catalog/pages/food/popular_food.dart';
 import 'package:flutter_catalog/pages/home/restaurant_page_body.dart';
+import 'package:flutter_catalog/pages/restaurant/all_restaurant.dart';
 import 'package:flutter_catalog/widgets/add_to_cart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainScreen(),
+      home: AllRestaurant(),
     );
   }
 }
