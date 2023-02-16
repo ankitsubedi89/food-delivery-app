@@ -31,10 +31,10 @@ class MainScreen extends StatelessWidget {
                   Container(
                     height: Dimensions.height50,
                     width: Dimensions.width50,
-                    child: Icon(Icons.search, color: Colors.white),
                     decoration: BoxDecoration(
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(Dimensions.radius10)),
+                    child: const Icon(Icons.search, color: Colors.white),
                   )
                 ],
               ),    

@@ -1,9 +1,5 @@
-import 'dart:ffi';
-
-import 'package:flutter/cupertino.dart';
+// import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_catalog/widgets/small_text.dart';
 
 class DescriptionText extends StatefulWidget {
@@ -45,7 +41,7 @@ class _DescriptionTextState extends State<DescriptionText> {
               children: [
                 SmallText(
                     text: hideText
-                        ? (firstHalf + "...")
+                        ? ("$firstHalf...")
                         : (firstHalf + secondHalf), lineSpacing: 1.8, size: 15,),
                 InkWell(
                   onTap: (() {
