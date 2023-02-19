@@ -38,7 +38,8 @@ dependencies:
   google_fonts: ^4.0.1
   dots_indicator: ^2.1.0
   flutter_screenutil: ^5.6.1
-
+  custom_navigation_bar: ^0.8.2
+  tabnavigator: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
