@@ -46,7 +46,7 @@ class MainScreen extends StatelessWidget {
             ))
           ],
         ),
-        bottomNavigationBar: NavBar(),
+        //  
       ),
     );
   }

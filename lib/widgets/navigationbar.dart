@@ -25,7 +25,7 @@ class _MyHomePageState extends State<NavBar> {
 
   final _map = <AppTab, TabBuilder>{
     AppTab.home: () {
-      return TabOne();
+      return MainScreen();
     },
     // AppTab.restaurant: () {
     //   return AllRestaurant();
