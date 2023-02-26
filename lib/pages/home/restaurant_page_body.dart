@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/food/food_details.dart';
@@ -12,7 +13,7 @@ import 'package:flutter_catalog/widgets/small_text.dart';
 import 'package:get/get.dart';
 
 class RestaurantPageBody extends StatefulWidget {
-  RestaurantPageBody({super.key});
+  const RestaurantPageBody({super.key});
 
   @override
   State<RestaurantPageBody> createState() => _SlideshowFoodState();
@@ -20,7 +21,6 @@ class RestaurantPageBody extends StatefulWidget {
 
 class _SlideshowFoodState extends State<RestaurantPageBody> {
   final PageController pageController = PageController(viewportFraction: 0.9, initialPage: 0);
-  // final PageController pageController = PageController(initialPage: 0);
   var currentPageValue = 0.0;
   int _currentPage = 0;
   bool end = false;
@@ -29,32 +29,15 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
   void initState() {
     super.initState();
     pageController.addListener(() {
-      setState(() {
-        currentPageValue = pageController.page!;
         @override
         void initState() {
           super.initState();
-          Timer.periodic(Duration(seconds: 2), (Timer timer) {
-            if (_currentPage == 4) {
-              end = true;
-            } else if (_currentPage == 0) {
-              end = false;
-            }
-
-            if (end == false) {
-              _currentPage++;
-            } else {
-              _currentPage--;
-            }
-
-            pageController.animateToPage(
-              _currentPage,
-              duration: Duration(milliseconds: 1000),
-              curve: Curves.easeIn,
-            );
-          });
+          pageController.addListener(() {
+            setState(() {
+              currentPageValue = pageController.page!;
+            });
+          }); 
         }
-      });
     });
   }
 
@@ -81,16 +64,51 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
           ]),
         ),
 
-        Container(
+        // SizedBox(
+        //   height: Dimensions.pageViewContainer,
+        //   // color: Colors.red,
+        //   child: PageView.builder(
+        //       controller: pageController,
+        //       itemCount: 4,
+        //       itemBuilder: ((context, index) {
+        //         return BuildHotel(index: index);
+        //       })),
+        // ),
+
+        CarouselSlider( options: CarouselOptions(
           height: Dimensions.pageViewContainer,
-          // color: Colors.red,
-          child: PageView.builder(
-              controller: pageController,
-              itemCount: 4,
-              itemBuilder: ((context, index) {
-                return BuildHotel(index: index);
-              })),
-        ),
+          viewportFraction: 0.9,
+          initialPage: 0,
+          enableInfiniteScroll: true,
+          reverse: false,
+          autoPlay: true,
+          autoPlayInterval: const Duration(seconds: 3),
+          autoPlayAnimationDuration: const Duration(milliseconds: 2000),
+          autoPlayCurve: Curves.fastOutSlowIn,
+          enlargeCenterPage: true,
+          onPageChanged: (index, reason) {
+            setState(() {
+              _currentPage = index;
+            });
+          },
+          scrollDirection: Axis.horizontal,
+        ), items: [
+          BuildHotel(index: 0),
+          BuildHotel(index: 1),
+          BuildHotel(index: 2),
+          BuildHotel(index: 3),
+        ].map((i) {
+          return Builder(
+            builder: (BuildContext context) {
+              return Container(
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: i,
+              );
+            },
+          );
+        }).toList(
+        )),
         DotsIndicator(
           dotsCount: 4,
           position: currentPageValue,
