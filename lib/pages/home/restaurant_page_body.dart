@@ -5,6 +5,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/food/food_details.dart';
 import 'package:flutter_catalog/pages/restaurant/all_restaurant.dart';
+import 'package:flutter_catalog/pages/restaurant/menu.dart';
 import 'package:flutter_catalog/widgets/big_text.dart';
 import 'package:flutter_catalog/widgets/build_hotel.dart';
 import 'package:flutter_catalog/widgets/dimensions.dart';
@@ -92,7 +93,7 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
             });
           },
           scrollDirection: Axis.horizontal,
-        ), items: [
+        ), items: const[
           BuildHotel(index: 0),
           BuildHotel(index: 1),
           BuildHotel(index: 2),
@@ -185,7 +186,7 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
                                 children: [
                                   InkWell(
                                       onTap: (() {
-                                        Get.to(() => FoodDetails());
+                                        Get.to(() => Menu());
                                         // Get.back();
                                       }),
                                       child: BigText(

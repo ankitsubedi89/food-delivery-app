@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_catalog/pages/restaurant/menu.dart';
-import 'package:flutter_catalog/widgets/big_text.dart';
 import 'package:flutter_catalog/widgets/dimensions.dart';
 import 'package:get/get.dart';
 
+import '../../widgets/big_text.dart';
+import '../food/food_details.dart';
 
-class AllRestaurant extends StatelessWidget {
-  const AllRestaurant({super.key});
+class Menu extends StatelessWidget {
+  const Menu({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +21,11 @@ class AllRestaurant extends StatelessWidget {
                 onPressed: () => Get.back(),
               ),
               title: BigText(
-                text: "All Restaurant",
+                text: "Menu",
                 color: Colors.black,
               )),
           body: InkWell(
-            onTap: () => Get.to(() => Menu()),
+            onTap: () => Get.to(() => FoodDetails()),
             child: Container(
               padding: EdgeInsets.all(Dimensions.height10),
               child: GridView.builder(
@@ -37,24 +37,24 @@ class AllRestaurant extends StatelessWidget {
                   itemCount: 10,
                   itemBuilder: ((context, index) => Container(
                         decoration: BoxDecoration(
+                          color: Colors.grey,
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius10),
-                          image: const DecorationImage(
-                            image: AssetImage("assets/images/iblues.png"),
-                            fit: BoxFit.cover,
-                          ),
                         ),
+                        
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Container(
-                            child: BigText(
-                              text: "Iblues",
-                              color: Colors.white,
+                            child: Center(
+                              child: BigText(
+                                text: "Momos",
+                                color: Colors.white,
+                              ),
                             ),
                           ))
                       ))),
             ),
           )),
-    );
+    );;
   }
 }

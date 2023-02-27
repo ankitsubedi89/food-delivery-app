@@ -3,10 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/food/food_details.dart';
 import 'package:flutter_catalog/pages/home/main_screen.dart';
-import 'package:flutter_catalog/pages/restaurant/all_restaurant.dart';
 import 'package:tabnavigator/tabnavigator.dart';
-
-import '../pages/tabs/tab_one.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({
