@@ -76,40 +76,43 @@ class _SlideshowFoodState extends State<RestaurantPageBody> {
         //       })),
         // ),
 
-        CarouselSlider( options: CarouselOptions(
-          height: Dimensions.pageViewContainer,
-          viewportFraction: 0.9,
-          initialPage: 0,
-          enableInfiniteScroll: true,
-          reverse: false,
-          autoPlay: true,
-          autoPlayInterval: const Duration(seconds: 3),
-          autoPlayAnimationDuration: const Duration(milliseconds: 2000),
-          autoPlayCurve: Curves.fastOutSlowIn,
-          enlargeCenterPage: true,
-          onPageChanged: (index, reason) {
-            setState(() {
-              _currentPage = index;
-            });
-          },
-          scrollDirection: Axis.horizontal,
-        ), items: const[
-          BuildHotel(index: 0),
-          BuildHotel(index: 1),
-          BuildHotel(index: 2),
-          BuildHotel(index: 3),
-        ].map((i) {
-          return Builder(
-            builder: (BuildContext context) {
-              return Container(
-                width: MediaQuery.of(context).size.width,
-                margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: i,
-              );
+        InkWell(
+          onTap: () => Get.to(() => Menu()),
+          child: CarouselSlider( options: CarouselOptions(
+            height: Dimensions.pageViewContainer,
+            viewportFraction: 0.9,
+            initialPage: 0,
+            enableInfiniteScroll: true,
+            reverse: false,
+            autoPlay: true,
+            autoPlayInterval: const Duration(seconds: 3),
+            autoPlayAnimationDuration: const Duration(milliseconds: 2000),
+            autoPlayCurve: Curves.fastOutSlowIn,
+            enlargeCenterPage: true,
+            onPageChanged: (index, reason) {
+              setState(() {
+                _currentPage = index;
+              });
             },
-          );
-        }).toList(
-        )),
+            scrollDirection: Axis.horizontal,
+          ), items: const[
+            BuildHotel(index: 0),
+            BuildHotel(index: 1),
+            BuildHotel(index: 2),
+            BuildHotel(index: 3),
+          ].map((i) {
+            return Builder(
+              builder: (BuildContext context) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                  child: i,
+                );
+              },
+            );
+          }).toList(
+          )),
+        ),
         DotsIndicator(
           dotsCount: 4,
           position: currentPageValue,
