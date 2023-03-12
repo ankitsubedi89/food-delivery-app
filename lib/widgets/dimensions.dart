@@ -41,6 +41,7 @@ class Dimensions{
   static double width100 = screenWidth / 4.11;
   static double width120 = screenWidth / 3.28;
   static double width160 = screenWidth / 2.45;
+  static double width200 = screenWidth / 1.93;
 
 
   //Fonts

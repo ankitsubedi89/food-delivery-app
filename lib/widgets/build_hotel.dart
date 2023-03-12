@@ -27,6 +27,7 @@ class BuildHotel extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Container(
               height: Dimensions.height120,
+              width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.only(left: Dimensions.width35, right: Dimensions.width35, bottom: Dimensions.height20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
@@ -80,14 +81,14 @@ class BuildHotel extends StatelessWidget {
                             text: 'Restaurant',
                             iconColor: Colors.orange),
                         SizedBox(
-                          width: Dimensions.width10,
+                          width: Dimensions.width5,
                         ),
                         const IconText(
                             icon: Icons.location_on,
                             text: '3.5km',
                             iconColor: Colors.green),
                         SizedBox(
-                          width: Dimensions.width10,
+                          width: Dimensions.width5,
                         ),
                         const IconText(
                             icon: Icons.timer_outlined,

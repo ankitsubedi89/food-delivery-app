@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_catalog/pages/home/restaurant_page_body.dart';
 import 'package:flutter_catalog/widgets/big_text.dart';
 import 'package:flutter_catalog/widgets/dimensions.dart';
-import 'package:flutter_catalog/widgets/navigationbar.dart';
 import 'package:flutter_catalog/widgets/small_text.dart';
 
 class MainScreen extends StatefulWidget {
